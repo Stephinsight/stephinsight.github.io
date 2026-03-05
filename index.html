@@ -2,52 +2,62 @@
 <html>
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Steph'Insight</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-font-family:Arial;
+font-family:'Playfair Display', serif;
 text-align:center;
-background:#111;
+background:#0b0b0b;
 color:white;
 margin:0;
-padding:0;
 }
 
 .header{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:40px;
+padding:120px 20px 60px 20px;
 }
 
-.fullscreen{
-height:100vh;
+.photo{
+width:180px;
+border-radius:50%;
+margin-top:25px;
+box-shadow:0px 0px 30px rgba(255,255,255,0.2);
+}
+
+.tagline{
+margin-top:20px;
+font-size:18px;
+opacity:0.8;
+}
+
+.spacer{
+height:500px;
+font-size:28px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:32px;
-text-align:center;
-padding:40px;
+opacity:0.9;
 }
 
 .reveal{
-padding:40px;
+margin-top:200px;
 }
 
 iframe{
-max-width:100%;
-border:none;
+width:100%;
+max-width:420px;
+height:420px;
+border:0;
 }
 
 </style>
 
 </head>
+
 
 <body>
 
@@ -55,41 +65,41 @@ border:none;
 
 <h1>Steph'Insight</h1>
 
-<h2>Prediction of the Day</h2>
+<img src="steph.jpg" class="photo">
 
-<p>
-Earlier today I wrote a prediction.<br>
-Do not scroll yet.
+<div class="tagline">
+Magician • Mentalist • Barista
+</div>
+
+<p style="margin-top:25px">
+Sometimes a simple coffee<br>
+can lead to something impossible.
 </p>
 
 </div>
 
-<div class="fullscreen">
-You made your choices.
+
+<div class="spacer">
+You made your choices
 </div>
 
-<div class="fullscreen">
-Everything felt random.
+<div class="spacer">
+Everything felt random
 </div>
 
-<div class="fullscreen">
+<div class="spacer">
 And yet...
 </div>
 
-<div class="fullscreen">
-The outcome was already written.
-</div>
 
 <div class="reveal">
 
-<iframe 
-src="https://www.flitch.me/iframe.php?n=17726602048546"
-width="100%" 
-height="1200"
-scrolling="yes">
-</iframe>
+<iframe src="https://www.flitch.me/iframe.php?n=17726602048546"></iframe>
 
 </div>
+
+
+<div style="height:400px"></div>
 
 </body>
 </html>
