@@ -2,242 +2,197 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steph'Insight</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steph'Insight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body{
+      font-family:'Playfair Display', serif;
+      background:#0b0b0b;
+      color:white;
+      text-align:center;
+      margin:0;
+      padding:0;
+      overflow-x:hidden;
+    }
 
-<style>
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      background:#0b0b0b;
+    }
 
-body{
-font-family:'Playfair Display', serif;
-background:#0b0b0b;
-color:white;
-text-align:center;
-margin:0;
-padding:0;
-overflow-x:hidden;
-}
+    .stars{
+      position:fixed;
+      width:200%;
+      height:200%;
+      z-index:-2;
+      background-image: radial-gradient(white 1px, transparent 1px);
+      background-size:120px 120px;
+      opacity:0.12;
+      animation:moveStars 60s linear infinite;
+    }
 
-/* BACKGROUND */
+    @keyframes moveStars{
+      from{transform:translate(0,0)}
+      to{transform:translate(-200px,200px)}
+    }
 
-.bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#0b0b0b;
-z-index:-3;
-}
+    .header{
+      padding:120px 20px 60px 20px;
+    }
 
-.stars{
-position:fixed;
-width:200%;
-height:200%;
-background-image:
-radial-gradient(white 1px, transparent 1px);
-background-size:120px 120px;
-opacity:0.15;
-animation:moveStars 60s linear infinite;
-z-index:-2;
-}
+    .photo{
+      width:180px;
+      border-radius:50%;
+      margin-top:25px;
+      box-shadow:0px 0px 40px rgba(255,255,255,0.18);
+    }
 
-@keyframes moveStars{
-from{transform:translate(0,0)}
-to{transform:translate(-200px,200px)}
-}
+    .spacer{
+      height:80vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:36px;
+      padding:40px;
+      opacity:0.95;
+    }
 
-/* HEADER */
+    .reveal{
+      margin-top:100px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+    }
 
-.header{
-padding:120px 20px 60px 20px;
-}
+    .my-prediction{
+      font-size:18px;
+      opacity:0.6;
+      margin-bottom:18px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
 
-/* MAGIC GLOW AROUND PHOTO */
+    .prediction-frame{
+      padding:12px;
+      border-radius:22px;
+      background:#0b0b0b;
+      border:1px solid rgba(255,255,255,0.08);
+    }
 
-.photo{
-width:180px;
-border-radius:50%;
-margin-top:25px;
-box-shadow:
-0px 0px 40px rgba(255,255,255,0.2),
-0px 0px 80px rgba(120,170,255,0.15);
-}
+    .zoom-container{
+      transform:scale(1.05);
+      overflow:hidden;
+      border-radius:20px;
+    }
 
-/* SCROLL PHRASES */
+    iframe{
+      width:100%;
+      max-width:500px;
+      height:520px;
+      border:0;
+      border-radius:20px;
+      display:block;
+    }
 
-.spacer{
-height:80vh;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:36px;
-padding:40px;
-opacity:0.95;
-}
+    .insta{
+      margin-top:80px;
+      padding-bottom:40px;
+    }
 
-/* REVEAL AREA */
+    .insta p{
+      font-size:24px;
+      opacity:0.9;
+      margin:0;
+    }
 
-.reveal{
-margin-top:100px;
-display:flex;
-justify-content:center;
-}
+    .insta small{
+      display:block;
+      margin-top:10px;
+      opacity:0.7;
+      font-size:16px;
+    }
 
-  <p style="opacity:0.5; margin-bottom:20px">
-My prediction
-</p>
-/* PREDICTION FRAME */
+    .insta-btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 34px;
+      font-size:18px;
+      text-decoration:none;
+      color:white;
+      border-radius:40px;
+      background:linear-gradient(45deg,#833AB4,#FD1D1D,#F77737);
+      box-shadow:0px 0px 25px rgba(253,29,29,0.6);
+      transition:0.3s;
+    }
 
-.prediction-frame{
-padding:12px;
-border-radius:22px;
-background:#0b0b0b;
-border:1px solid rgba(255,255,255,0.08);
-}
-}
+    .insta-btn:hover{
+      transform:scale(1.06);
+      box-shadow:0px 0px 40px rgba(253,29,29,0.9);
+    }
 
-/* ZOOM CONTAINER */
-
-.zoom-container{
-transform:scale(1.05);
-overflow:hidden;
-border-radius:20px;
-}
-
-/* IFRAME */
-
-iframe{
-width:100%;
-max-width:500px;
-height:520px;
-border:0;
-border-radius:20px;
-}
-
-/* INSTAGRAM SECTION */
-
-.insta{
-margin-top:80px;
-padding-bottom:40px;
-}
-
-.insta p{
-font-size:24px;
-opacity:0.9;
-}
-
-/* INSTAGRAM BUTTON */
-
-.insta-btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 34px;
-font-size:18px;
-text-decoration:none;
-color:white;
-border-radius:40px;
-background:linear-gradient(45deg,#833AB4,#FD1D1D,#F77737);
-box-shadow:0px 0px 25px rgba(253,29,29,0.6);
-transition:0.3s;
-}
-
-.insta-btn:hover{
-transform:scale(1.08);
-box-shadow:0px 0px 40px rgba(253,29,29,0.9);
-}
-
-/* CONTACT */
-
-.contact{
-margin-top:40px;
-font-size:18px;
-opacity:0.7;
-}
-
-</style>
-
+    .contact{
+      margin-top:40px;
+      padding-bottom:120px;
+      font-size:16px;
+      opacity:0.65;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-<div class="stars"></div>
+  <div class="bg"></div>
+  <div class="stars"></div>
 
-<div class="header">
+  <div class="header">
+    <h1>Steph'Insight</h1>
 
-<h1>Steph'Insight</h1>
+    <img src="steph.jpg" class="photo" alt="Steph'Insight">
 
-<img src="steph.jpg" class="photo">
+    <p style="margin-top:25px;font-size:20px;opacity:0.8;margin-bottom:0;">
+      Magician • Mentalist • Barista
+    </p>
 
-<p style="margin-top:25px;font-size:20px;opacity:0.8">
-Magician • Mentalist • Barista
-</p>
+    <p style="margin-top:20px;opacity:0.7;">
+      Earlier today, I wrote something down.<br>
+      Sometimes a simple coffee can lead to something impossible.
+    </p>
+  </div>
 
-<p style="margin-top:20px;opacity:0.7">
-Earlier today, I wrote something down.<br>
-  Sometimes a simple coffee<br>
-can lead to something impossible.
-</p>
+  <div class="spacer">You made your choices</div>
+  <div class="spacer">Everything felt random</div>
+  <div class="spacer">And yet...</div>
+  <div class="spacer">The outcome was already written</div>
 
-</div>
+  <div class="reveal">
+    <div class="my-prediction">My prediction</div>
 
-<div class="spacer">
-You made your choices
-</div>
+    <div class="prediction-frame">
+      <div class="zoom-container">
+        <iframe src="https://www.flitch.me/iframe.php?n=17726602048546" scrolling="yes"></iframe>
+      </div>
+    </div>
+  </div>
 
-<div class="spacer">
-Everything felt random
-</div>
+  <div class="insta">
+    <p>This was only the beginning.</p>
+    <small>Want to see more impossible moments?</small>
 
-<div class="spacer">
-And yet...
-</div>
+    <a class="insta-btn" href="https://instagram.com/steph_superv" target="_blank" rel="noopener">
+      Follow @steph_superv
+    </a>
+  </div>
 
-<div class="spacer">
-The outcome was already written
-</div>
-
-<div class="reveal">
-
-<div class="prediction-frame">
-
-<div class="zoom-container">
-
-<iframe src="https://www.flitch.me/iframe.php?n=17726602048546"></iframe>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="insta">
-
-<p>
-This was only the beginning.
-</p>
-
-<p style="opacity:0.7;margin-top:10px">
-Want to see more impossible moments?
-</p>
-
-<a class="insta-btn" href="https://instagram.com/steph_superv" target="_blank">
-Follow @steph_superv
-</a>
-
-</div>
-
-<div class="contact">
-
-<p>
-Contact<br>
-magicstephinsight@gmail.com
-</p>
-
-</div>
+  <div class="contact">
+    magicstephinsight@gmail.com
+  </div>
 
 </body>
 
