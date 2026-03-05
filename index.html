@@ -2,21 +2,25 @@
 <html>
 
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Steph'Insight</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 font-family:'Playfair Display', serif;
-text-align:center;
 background:#0b0b0b;
 color:white;
+text-align:center;
 margin:0;
+padding:0;
 }
+
+/* HEADER */
 
 .header{
 padding:120px 20px 60px 20px;
@@ -26,39 +30,69 @@ padding:120px 20px 60px 20px;
 width:180px;
 border-radius:50%;
 margin-top:25px;
-box-shadow:0px 0px 30px rgba(255,255,255,0.2);
+box-shadow:0px 0px 35px rgba(255,255,255,0.15);
 }
 
-.tagline{
-margin-top:20px;
-font-size:18px;
-opacity:0.8;
-}
+/* PHRASES SCROLL */
 
 .spacer{
-height:500px;
-font-size:34px;
+height:80vh;
 display:flex;
 align-items:center;
 justify-content:center;
+font-size:36px;
+padding:40px;
 opacity:0.9;
 }
 
+/* REVELATION */
+
 .reveal{
-margin-top:200px;
+margin-top:100px;
 }
 
 iframe{
 width:100%;
 max-width:420px;
-height:420px;
+height:500px;
 border:0;
+}
+
+/* INSTAGRAM SECTION */
+
+.insta{
+margin-top:80px;
+padding-bottom:120px;
+}
+
+.insta p{
+font-size:24px;
+opacity:0.9;
+}
+
+/* BOUTON INSTAGRAM */
+
+.insta-btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 34px;
+font-size:18px;
+text-decoration:none;
+color:white;
+border-radius:40px;
+background:linear-gradient(45deg,#833AB4,#FD1D1D,#F77737);
+box-shadow:0px 0px 20px rgba(253,29,29,0.5);
+transition:0.3s;
+}
+
+.insta-btn:hover{
+transform:scale(1.08);
+box-shadow:0px 0px 35px rgba(253,29,29,0.8);
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -68,11 +102,11 @@ border:0;
 
 <img src="steph.jpg" class="photo">
 
-<div class="tagline">
+<p style="margin-top:25px; font-size:20px; opacity:0.8">
 Magician • Mentalist • Barista
-</div>
+</p>
 
-<p style="margin-top:25px">
+<p style="margin-top:20px; opacity:0.7">
 Sometimes a simple coffee<br>
 can lead to something impossible.
 </p>
@@ -95,12 +129,27 @@ And yet...
 
 <div class="reveal">
 
-<iframe src="https://www.flitch.me/iframe.php?n=17726602048546" style="width:100%; height:500px;"></iframe>
+<iframe src="https://www.flitch.me/iframe.php?n=17726602048546" scrolling="yes"></iframe>
 
 </div>
 
 
-<div style="height:400px"></div>
+<div class="insta">
+
+<p>
+This was only the beginning.
+</p>
+
+<p style="opacity:0.7; margin-top:10px">
+Want to see more impossible moments?
+</p>
+
+<a class="insta-btn" href="https://instagram.com/steph_superv" target="_blank">
+Follow on Instagram
+</a>
+
+</div>
+
 
 </body>
 </html>
