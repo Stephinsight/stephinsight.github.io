@@ -79,6 +79,7 @@
       text-transform:uppercase;
     }
 
+    /* Cadre sobre (pas de glow) */
     .prediction-frame{
       padding:12px;
       border-radius:22px;
@@ -86,19 +87,26 @@
       border:1px solid rgba(255,255,255,0.08);
     }
 
-    .zoom-container{
-      transform:scale(1.05);
+    /* ✅ ICI: on coupe seulement le bas (sans couper les côtés) */
+    .clip{
+      width:100%;
+      max-width:500px;
+      height:430px;          /* hauteur “fenêtre” visible */
       overflow:hidden;
       border-radius:20px;
+      background:#0b0b0b;
     }
 
+    /* L’iframe peut être plus grande, on la remonte un peu */
     iframe{
       width:100%;
       max-width:500px;
-      height:520px;
+      height:560px;          /* plus grand que la fenêtre */
       border:0;
       border-radius:20px;
       display:block;
+      transform: translateY(-10px); /* remonte légèrement l'image */
+      background:#0b0b0b;
     }
 
     .insta{
@@ -143,6 +151,12 @@
       font-size:16px;
       opacity:0.65;
     }
+
+    @media (max-width: 420px){
+      .spacer{ font-size:32px; }
+      .clip{ height:420px; }
+      iframe{ height:560px; transform: translateY(-12px); }
+    }
   </style>
 </head>
 
@@ -175,7 +189,7 @@
     <div class="my-prediction">My prediction</div>
 
     <div class="prediction-frame">
-      <div class="zoom-container">
+      <div class="clip">
         <iframe src="https://www.flitch.me/iframe.php?n=17726602048546" scrolling="yes"></iframe>
       </div>
     </div>
