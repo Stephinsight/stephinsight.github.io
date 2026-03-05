@@ -2,154 +2,215 @@
 <html>
 
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Steph'Insight</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-
+/* Base */
 body{
-font-family:'Playfair Display', serif;
-background:#0b0b0b;
-color:white;
-text-align:center;
-margin:0;
-padding:0;
+  font-family:'Playfair Display', serif;
+  background:#0b0b0b;
+  color:white;
+  text-align:center;
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
 }
 
-/* HEADER */
+/* Subtle animated star/dust background */
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05), transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(255,255,255,0.04), transparent 45%),
+    #0b0b0b;
+}
 
+.stars{
+  position:fixed;
+  inset:-20%;
+  z-index:-2;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 120px 120px, 180px 180px, 260px 260px;
+  background-position: 0 0, 30px 60px, 80px 20px;
+  opacity:0.25;
+  animation: drift 26s linear infinite;
+}
+
+@keyframes drift{
+  0%   { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-120px, 80px, 0); }
+}
+
+/* Soft vignette */
+.vignette{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%);
+}
+
+/* Header */
 .header{
-padding:120px 20px 60px 20px;
+  padding:120px 20px 60px 20px;
 }
 
 .photo{
-width:180px;
-border-radius:50%;
-margin-top:25px;
-box-shadow:0px 0px 35px rgba(255,255,255,0.15);
+  width:180px;
+  border-radius:50%;
+  margin-top:25px;
+  box-shadow:
+    0px 0px 35px rgba(255,255,255,0.15),
+    0px 0px 60px rgba(120, 180, 255, 0.06);
 }
 
-/* PHRASES SCROLL */
-
+/* Cinematic lines */
 .spacer{
-height:80vh;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:36px;
-padding:40px;
-opacity:0.9;
+  height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:36px;
+  padding:40px;
+  opacity:0.95;
+  text-shadow: 0 0 22px rgba(255,255,255,0.08);
 }
 
-/* REVELATION */
-
+/* Reveal */
 .reveal{
-margin-top:100px;
+  margin-top:100px;
+  padding: 0 18px;
 }
 
 iframe{
-width:100%;
-max-width:420px;
-height:500px;
-border:0;
+  width:100%;
+  max-width:520px;
+  height:560px;
+  border:0;
+  border-radius:18px;
+  box-shadow: 0 0 35px rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.02);
 }
 
-/* INSTAGRAM SECTION */
-
+/* Insta section */
 .insta{
-margin-top:80px;
-padding-bottom:120px;
+  margin-top:80px;
+  padding-bottom:120px;
 }
 
 .insta p{
-font-size:24px;
-opacity:0.9;
+  font-size:24px;
+  opacity:0.92;
+  text-shadow: 0 0 18px rgba(255,255,255,0.06);
 }
 
-/* BOUTON INSTAGRAM */
-
+/* Instagram button (glow + shimmer) */
 .insta-btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 34px;
-font-size:18px;
-text-decoration:none;
-color:white;
-border-radius:40px;
-background:linear-gradient(45deg,#833AB4,#FD1D1D,#F77737);
-box-shadow:0px 0px 20px rgba(253,29,29,0.5);
-transition:0.3s;
+  position:relative;
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 34px;
+  font-size:18px;
+  text-decoration:none;
+  color:white;
+  border-radius:40px;
+  background:linear-gradient(45deg,#833AB4,#FD1D1D,#F77737);
+  box-shadow:
+    0px 0px 18px rgba(253,29,29,0.45),
+    0px 0px 38px rgba(131,58,180,0.25);
+  transition:0.25s;
+  overflow:hidden;
+}
+
+.insta-btn:before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-60%;
+  width:50%;
+  height:200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: rotate(20deg);
+  animation: shimmer 2.8s ease-in-out infinite;
+  opacity:0.55;
+}
+
+@keyframes shimmer{
+  0%   { left:-60%; }
+  55%  { left:130%; }
+  100% { left:130%; }
 }
 
 .insta-btn:hover{
-transform:scale(1.08);
-box-shadow:0px 0px 35px rgba(253,29,29,0.8);
+  transform:scale(1.06);
+  box-shadow:
+    0px 0px 24px rgba(253,29,29,0.70),
+    0px 0px 55px rgba(131,58,180,0.40);
+}
+
+/* Small responsive tweaks */
+@media (max-width: 420px){
+  .spacer{ font-size:32px; }
+  iframe{ height:600px; }
+  .photo{ width:170px; }
 }
 
 </style>
-
 </head>
 
 <body>
 
+<div class="bg"></div>
+<div class="stars"></div>
+<div class="vignette"></div>
+
 <div class="header">
+  <h1>Steph'Insight</h1>
 
-<h1>Steph'Insight</h1>
+  <img src="steph.jpg" class="photo" alt="Steph'Insight">
 
-<img src="steph.jpg" class="photo">
+  <p style="margin-top:25px; font-size:20px; opacity:0.82">
+    Magician • Mentalist • Barista
+  </p>
 
-<p style="margin-top:25px; font-size:20px; opacity:0.8">
-Magician • Mentalist • Barista
-</p>
-
-<p style="margin-top:20px; opacity:0.7">
-Sometimes a simple coffee<br>
-can lead to something impossible.
-</p>
-
+  <p style="margin-top:20px; opacity:0.72">
+    Sometimes a simple coffee<br>
+    can lead to something impossible.
+  </p>
 </div>
 
-
-<div class="spacer">
-You made your choices
-</div>
-
-<div class="spacer">
-Everything felt random
-</div>
-
-<div class="spacer">
-And yet...
-</div>
-
+<div class="spacer">You made your choices</div>
+<div class="spacer">Everything felt random</div>
+<div class="spacer">And yet...</div>
+<div class="spacer">The outcome was already written</div>
 
 <div class="reveal">
-
-<iframe src="https://www.flitch.me/iframe.php?n=17726602048546" scrolling="yes"></iframe>
-
+  <iframe
+    src="https://www.flitch.me/iframe.php?n=17726602048546"
+    scrolling="yes">
+  </iframe>
 </div>
-
 
 <div class="insta">
+  <p>This was only the beginning.</p>
 
-<p>
-This was only the beginning.
-</p>
+  <p style="opacity:0.72; margin-top:10px">
+    Want to see more impossible moments?
+  </p>
 
-<p style="opacity:0.7; margin-top:10px">
-Want to see more impossible moments?
-</p>
-
-<a class="insta-btn" href="https://instagram.com/steph_superv" target="_blank">
-Follow on Instagram
-</a>
-
+  <a class="insta-btn" href="https://instagram.com/steph_superv" target="_blank" rel="noopener">
+    Follow @steph_superv
+  </a>
 </div>
-
 
 </body>
 </html>
