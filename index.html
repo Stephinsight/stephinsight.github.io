@@ -4,7 +4,6 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Steph'Insight</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
@@ -21,7 +20,7 @@ padding:0;
 overflow-x:hidden;
 }
 
-/* BACKGROUND STARS */
+/* BACKGROUND */
 
 .bg{
 position:fixed;
@@ -56,11 +55,15 @@ to{transform:translate(-200px,200px)}
 padding:120px 20px 60px 20px;
 }
 
+/* MAGIC GLOW AROUND PHOTO */
+
 .photo{
 width:180px;
 border-radius:50%;
 margin-top:25px;
-box-shadow:0px 0px 40px rgba(255,255,255,0.15);
+box-shadow:
+0px 0px 40px rgba(255,255,255,0.2),
+0px 0px 80px rgba(120,170,255,0.15);
 }
 
 /* SCROLL PHRASES */
@@ -75,12 +78,23 @@ padding:40px;
 opacity:0.95;
 }
 
-/* REVEAL */
+/* REVEAL AREA */
 
 .reveal{
 margin-top:100px;
 display:flex;
 justify-content:center;
+}
+
+/* PREDICTION FRAME */
+
+.prediction-frame{
+padding:15px;
+border-radius:25px;
+background:linear-gradient(145deg,#111,#1c1c1c);
+box-shadow:
+0px 0px 40px rgba(255,255,255,0.1),
+inset 0px 0px 20px rgba(255,255,255,0.05);
 }
 
 /* ZOOM CONTAINER */
@@ -101,11 +115,11 @@ border:0;
 border-radius:20px;
 }
 
-/* INSTAGRAM */
+/* INSTAGRAM SECTION */
 
 .insta{
 margin-top:80px;
-padding-bottom:120px;
+padding-bottom:40px;
 }
 
 .insta p{
@@ -133,6 +147,14 @@ transform:scale(1.08);
 box-shadow:0px 0px 40px rgba(253,29,29,0.9);
 }
 
+/* CONTACT */
+
+.contact{
+margin-top:40px;
+font-size:18px;
+opacity:0.7;
+}
+
 </style>
 
 </head>
@@ -153,7 +175,8 @@ Magician • Mentalist • Barista
 </p>
 
 <p style="margin-top:20px;opacity:0.7">
-Sometimes a simple coffee<br>
+Earlier today, I wrote something down.<br>
+  Sometimes a simple coffee<br>
 can lead to something impossible.
 </p>
 
@@ -177,9 +200,13 @@ The outcome was already written
 
 <div class="reveal">
 
+<div class="prediction-frame">
+
 <div class="zoom-container">
 
 <iframe src="https://www.flitch.me/iframe.php?n=17726602048546"></iframe>
+
+</div>
 
 </div>
 
@@ -198,6 +225,15 @@ Want to see more impossible moments?
 <a class="insta-btn" href="https://instagram.com/steph_superv" target="_blank">
 Follow @steph_superv
 </a>
+
+</div>
+
+<div class="contact">
+
+<p>
+Contact<br>
+magicstephinsight@gmail.com
+</p>
 
 </div>
 
