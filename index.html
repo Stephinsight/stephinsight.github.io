@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
+
+  <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Steph'Insight</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     body{
       font-family:'Playfair Display', serif;
       background:#0b0b0b;
@@ -18,6 +26,9 @@
       overflow-x:hidden;
     }
 
+
+    /* FOND */
+
     .bg{
       position:fixed;
       inset:0;
@@ -25,188 +36,475 @@
       background:#0b0b0b;
     }
 
+
+    /* PETITES ÉTOILES */
+
     .stars{
       position:fixed;
       width:200%;
       height:200%;
       z-index:-2;
-      background-image: radial-gradient(white 1px, transparent 1px);
+
+      background-image:
+        radial-gradient(white 1px, transparent 1px);
+
       background-size:120px 120px;
+
       opacity:0.12;
+
       animation:moveStars 60s linear infinite;
     }
 
+
     @keyframes moveStars{
-      from{transform:translate(0,0)}
-      to{transform:translate(-200px,200px)}
+
+      from{
+        transform:translate(0,0);
+      }
+
+      to{
+        transform:translate(-200px,200px);
+      }
+
     }
+
+
+    /* INTRODUCTION */
 
     .header{
       padding:120px 20px 60px 20px;
     }
 
-    .photo{
-      width:180px;
-      border-radius:50%;
-      margin-top:25px;
-      box-shadow:0px 0px 40px rgba(255,255,255,0.18);
+
+    .header h1{
+      font-size:42px;
+      margin-bottom:20px;
     }
 
+
+    .photo{
+      width:180px;
+      height:180px;
+      object-fit:cover;
+
+      border-radius:50%;
+
+      margin-top:15px;
+
+      box-shadow:
+        0px 0px 40px rgba(255,255,255,0.18);
+    }
+
+
+    .subtitle{
+      margin-top:25px;
+
+      font-size:20px;
+
+      opacity:0.8;
+    }
+
+
+    .intro-text{
+      margin-top:25px;
+
+      font-size:18px;
+
+      line-height:1.6;
+
+      opacity:0.7;
+    }
+
+
+    /* PHRASES PENDANT LE SCROLL */
+
     .spacer{
-      height:80vh;
+      min-height:80vh;
+
       display:flex;
+
       align-items:center;
+
       justify-content:center;
+
       font-size:36px;
-      padding:40px;
+
+      padding:40px 25px;
+
+      box-sizing:border-box;
+
       opacity:0.95;
     }
 
+
+    /* RÉVÉLATION */
+
     .reveal{
-      margin-top:100px;
+
+      margin-top:80px;
+
       display:flex;
+
       flex-direction:column;
+
       align-items:center;
+
       justify-content:center;
-      padding:0 18px;
+
+      padding:0 15px;
+
     }
+
 
     .my-prediction{
-      font-size:18px;
+
+      font-size:20px;
+
       opacity:0.6;
-      margin-bottom:18px;
+
+      margin-bottom:25px;
+
       letter-spacing:1px;
+
       text-transform:uppercase;
+
     }
 
-    /* Cadre sobre (pas de glow) */
-    .prediction-frame{
-      padding:12px;
-      border-radius:22px;
-      background:#0b0b0b;
-      border:1px solid rgba(255,255,255,0.08);
-    }
 
-    /* ✅ ICI: on coupe seulement le bas (sans couper les côtés) */
-    .clip{
+    /*
+      FLITCH
+
+      Aucun cadre.
+      Aucun fond supplémentaire.
+      Aucun contour.
+
+      Le noir de Flitch se fond directement
+      dans le noir du site.
+    */
+
+    .flitch{
+
       width:100%;
-      max-width:500px;
-      height:430px;          /* hauteur “fenêtre” visible */
-      overflow:hidden;
-      border-radius:20px;
-      background:#0b0b0b;
-    }
 
-    /* L’iframe peut être plus grande, on la remonte un peu */
-    iframe{
-      width:100%;
-      max-width:500px;
-      height:560px;          /* plus grand que la fenêtre */
-      border:0;
-      border-radius:20px;
+      max-width:700px;
+
+      height:700px;
+
+      border:none;
+
+      margin:0 auto;
+
+      padding:0;
+
       display:block;
-      transform: translateY(-10px); /* remonte légèrement l'image */
+
       background:#0b0b0b;
+
     }
+
+
+    /* INSTAGRAM */
 
     .insta{
-      margin-top:80px;
-      padding-bottom:40px;
+
+      margin-top:50px;
+
+      padding:0 20px 60px 20px;
+
     }
+
 
     .insta p{
+
       font-size:24px;
+
       opacity:0.9;
+
       margin:0;
+
     }
+
 
     .insta small{
+
       display:block;
+
       margin-top:10px;
+
       opacity:0.7;
+
       font-size:16px;
+
     }
+
 
     .insta-btn{
+
       display:inline-block;
+
       margin-top:25px;
+
       padding:14px 34px;
+
       font-size:18px;
+
       text-decoration:none;
+
       color:white;
+
       border-radius:40px;
-      background:linear-gradient(45deg,#833AB4,#FD1D1D,#F77737);
-      box-shadow:0px 0px 25px rgba(253,29,29,0.6);
+
+      background:
+        linear-gradient(
+          45deg,
+          #833AB4,
+          #FD1D1D,
+          #F77737
+        );
+
+      box-shadow:
+        0px 0px 25px rgba(253,29,29,0.6);
+
       transition:0.3s;
+
     }
+
 
     .insta-btn:hover{
+
       transform:scale(1.06);
-      box-shadow:0px 0px 40px rgba(253,29,29,0.9);
+
+      box-shadow:
+        0px 0px 40px rgba(253,29,29,0.9);
+
     }
+
+
+    /* CONTACT */
 
     .contact{
-      margin-top:40px;
-      padding-bottom:120px;
+
+      margin-top:20px;
+
+      padding-bottom:
+        calc(140px + env(safe-area-inset-bottom));
+
       font-size:16px;
+
       opacity:0.65;
+
     }
 
-    @media (max-width: 420px){
-      .spacer{ font-size:32px; }
-      .clip{ height:420px; }
-      iframe{ height:560px; transform: translateY(-12px); }
+
+    .contact a{
+
+      color:white;
+
+      text-decoration:none;
+
     }
+
+
+    /* VERSION TÉLÉPHONE */
+
+    @media (max-width:420px){
+
+      .header{
+        padding-top:90px;
+      }
+
+
+      .header h1{
+        font-size:36px;
+      }
+
+
+      .photo{
+        width:160px;
+        height:160px;
+      }
+
+
+      .spacer{
+
+        font-size:31px;
+
+        min-height:75vh;
+
+      }
+
+
+      .flitch{
+
+        width:100%;
+
+        height:650px;
+
+      }
+
+
+      .my-prediction{
+
+        font-size:18px;
+
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
+
+  <!-- FOND -->
+
   <div class="bg"></div>
+
   <div class="stars"></div>
 
+
+
+  <!-- INTRODUCTION -->
+
   <div class="header">
+
     <h1>Steph'Insight</h1>
 
-    <img src="steph.jpg" class="photo" alt="Steph'Insight">
 
-    <p style="margin-top:25px;font-size:20px;opacity:0.8;margin-bottom:0;">
-      Magicien • Mentaliste 
-    </p>
+    <img
+      src="steph.jpg"
+      class="photo"
+      alt="Steph'Insight"
+    >
 
-    <p style="margin-top:20px;opacity:0.7;">
-      Plus tôt dans la journée, j'ai laissé quelque chose ici...<br>
-      Quelque chose qui m'était venu à l'esprit.
-    </p>
+
+    <div class="subtitle">
+
+      Magicien • Mentaliste
+
+    </div>
+
+
+    <div class="intro-text">
+
+      Plus tôt dans la journée,<br>
+      j'ai laissé quelque chose ici.
+
+    </div>
+
   </div>
 
-  <div class="spacer">VOUS avez fait un choix</div>
-  <div class="spacer">Cela ressemblait presque à du hasard</div>
-  <div class="spacer">Et pourtant...</div>
-  <div class="spacer">VOS choix ne vous appartiennent peut-être pas...</div>
+
+
+  <!-- SCROLL -->
+
+  <div class="spacer">
+
+    Vous avez fait vos choix.
+
+  </div>
+
+
+  <div class="spacer">
+
+    Tout semblait dû au hasard.
+
+  </div>
+
+
+  <div class="spacer">
+
+    Et pourtant...
+
+  </div>
+
+
+  <div class="spacer">
+
+    Vos choix ne vous appartiennent peut-être pas...
+
+  </div>
+
+
+
+  <!-- PRÉDICTION -->
 
   <div class="reveal">
-    <div class="my-prediction">Ma prédiction</div>
 
-    <div class="prediction-frame">
-      <div class="clip">
-        <iframe src="https://www.flitch.me/iframe.php?n=17726602048546" scrolling="yes"></iframe>
-      </div>
+
+    <div class="my-prediction">
+
+      Ma prédiction
+
     </div>
+
+
+    <iframe
+
+      class="flitch"
+
+      src="https://www.flitch.me/iframe.php?n=17726602048546"
+
+      scrolling="yes">
+
+    </iframe>
+
+
   </div>
+
+
+
+  <!-- INSTAGRAM -->
 
   <div class="insta">
-    <p>Ce n'était que le début.</p>
-    <small>Envie de vivre d'autres moments impossibles?</small>
 
-    <a class="insta-btn" href="https://instagram.com/steph_superv" target="_blank" rel="noopener">
-      Follow @steph_superv
+    <p>
+
+      Ce n'était que le début.
+
+    </p>
+
+
+    <small>
+
+      Envie de découvrir d'autres moments impossibles ?
+
+    </small>
+
+
+    <a
+
+      class="insta-btn"
+
+      href="https://instagram.com/steph_superv"
+
+      target="_blank"
+
+      rel="noopener">
+
+      Suivre @steph_superv
+
     </a>
+
   </div>
+
+
+
+  <!-- CONTACT -->
 
   <div class="contact">
-    magicstephinsight@gmail.com
+
+    <a href="mailto:magicstephinsight@gmail.com">
+
+      magicstephinsight@gmail.com
+
+    </a>
+
   </div>
+
 
 </body>
 
