@@ -16,6 +16,10 @@
 
   <style>
 
+    /* =========================
+       PAGE
+       ========================= */
+
     body{
       font-family:'Playfair Display', serif;
       background:#0b0b0b;
@@ -27,7 +31,9 @@
     }
 
 
-    /* FOND */
+    /* =========================
+       FOND
+       ========================= */
 
     .bg{
       position:fixed;
@@ -37,7 +43,9 @@
     }
 
 
-    /* ÉTOILES */
+    /* =========================
+       ÉTOILES
+       ========================= */
 
     .stars{
       position:fixed;
@@ -69,7 +77,9 @@
     }
 
 
-    /* INTRO */
+    /* =========================
+       INTRODUCTION
+       ========================= */
 
     .header{
       padding:120px 20px 60px 20px;
@@ -99,20 +109,27 @@
 
     .subtitle{
       margin-top:25px;
+
       font-size:20px;
+
       opacity:0.8;
     }
 
 
     .intro-text{
       margin-top:25px;
+
       font-size:18px;
+
       line-height:1.6;
+
       opacity:0.7;
     }
 
 
-    /* PHRASES DU SCROLL */
+    /* =========================
+       PHRASES AU SCROLL
+       ========================= */
 
     .spacer{
       min-height:80vh;
@@ -120,6 +137,7 @@
       display:flex;
 
       align-items:center;
+
       justify-content:center;
 
       box-sizing:border-box;
@@ -132,15 +150,19 @@
     }
 
 
-    /* PRÉDICTION */
+    /* =========================
+       RÉVÉLATION
+       ========================= */
 
     .reveal{
       margin-top:80px;
 
       display:flex;
+
       flex-direction:column;
 
       align-items:center;
+
       justify-content:center;
 
       padding:0 15px;
@@ -160,24 +182,26 @@
     }
 
 
-    /*
-      FLITCH
-
-      Pas de cadre.
-      Pas de coins arrondis.
-      Pas de scrollbar.
-
-      La hauteur desktop est suffisante
-      pour afficher la prédiction sans
-      conserver l'énorme espace de 900px.
-    */
+    /* =========================
+       FLITCH
+       
+       IMPORTANT :
+       Sur PC, largeur maximum 500px.
+       
+       Cela évite que Flitch agrandisse
+       énormément une photo portrait.
+       
+       Aucun cadre.
+       Aucun arrondi.
+       Aucune scrollbar.
+       ========================= */
 
     .flitch{
       width:100%;
 
-      max-width:860px;
+      max-width:500px;
 
-      height:760px;
+      height:680px;
 
       border:0;
 
@@ -191,7 +215,9 @@
     }
 
 
-    /* INSTAGRAM */
+    /* =========================
+       INSTAGRAM
+       ========================= */
 
     .insta{
       margin-top:30px;
@@ -262,7 +288,9 @@
     }
 
 
-    /* CONTACT */
+    /* =========================
+       CONTACT
+       ========================= */
 
     .contact{
       margin-top:20px;
@@ -278,6 +306,7 @@
 
     .contact a{
       color:white;
+
       text-decoration:none;
     }
 
@@ -317,12 +346,16 @@
 
 
       /*
-        On conserve la hauteur qui
-        fonctionnait déjà sur téléphone.
+        Sur téléphone, on conserve
+        exactement le comportement
+        qui fonctionnait déjà.
       */
 
       .flitch{
         width:100%;
+
+        max-width:500px;
+
         height:650px;
       }
 
@@ -341,14 +374,19 @@
 <body>
 
 
-  <!-- FOND -->
+  <!-- =========================
+       FOND
+       ========================= -->
 
   <div class="bg"></div>
+
   <div class="stars"></div>
 
 
 
-  <!-- INTRODUCTION -->
+  <!-- =========================
+       INTRODUCTION
+       ========================= -->
 
   <div class="header">
 
@@ -365,7 +403,9 @@
 
 
     <div class="subtitle">
+
       Magicien • Mentaliste
+
     </div>
 
 
@@ -381,43 +421,61 @@
 
 
 
-  <!-- PARCOURS -->
+  <!-- =========================
+       PARCOURS
+       ========================= -->
 
   <div class="spacer">
+
     Vous avez fait vos choix.
+
   </div>
 
 
   <div class="spacer">
+
     Tout semblait dû au hasard.
+
   </div>
 
 
   <div class="spacer">
+
     Et pourtant...
+
   </div>
 
 
   <div class="spacer">
+
     Vos choix ne vous appartiennent peut-être pas...
+
   </div>
 
 
 
-  <!-- RÉVÉLATION -->
+  <!-- =========================
+       PRÉDICTION
+       ========================= -->
 
   <div class="reveal">
 
 
     <div class="my-prediction">
+
       Ma prédiction
+
     </div>
 
 
     <iframe
+
       class="flitch"
+
       src="https://www.flitch.me/iframe.php?n=17726602048546"
+
       scrolling="no">
+
     </iframe>
 
 
@@ -425,43 +483,59 @@
 
 
 
-  <!-- INSTAGRAM -->
+  <!-- =========================
+       INSTAGRAM
+       ========================= -->
 
   <div class="insta">
 
+
     <p>
+
       Ce n'était que le début.
+
     </p>
 
 
     <small>
+
       Envie de découvrir d'autres moments impossibles ?
+
     </small>
 
 
     <a
+
       class="insta-btn"
+
       href="https://instagram.com/steph_superv"
+
       target="_blank"
+
       rel="noopener">
 
       Suivre @steph_superv
 
     </a>
 
+
   </div>
 
 
 
-  <!-- CONTACT -->
+  <!-- =========================
+       CONTACT
+       ========================= -->
 
   <div class="contact">
+
 
     <a href="mailto:magicstephinsight@gmail.com">
 
       magicstephinsight@gmail.com
 
     </a>
+
 
   </div>
 
