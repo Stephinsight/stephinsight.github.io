@@ -37,7 +37,7 @@
     }
 
 
-    /* PETITES ÉTOILES */
+    /* ÉTOILES */
 
     .stars{
       position:fixed;
@@ -69,7 +69,7 @@
     }
 
 
-    /* INTRODUCTION */
+    /* INTRO */
 
     .header{
       padding:120px 20px 60px 20px;
@@ -85,6 +85,7 @@
     .photo{
       width:180px;
       height:180px;
+
       object-fit:cover;
 
       border-radius:50%;
@@ -92,31 +93,26 @@
       margin-top:15px;
 
       box-shadow:
-        0px 0px 40px rgba(255,255,255,0.18);
+        0 0 40px rgba(255,255,255,0.18);
     }
 
 
     .subtitle{
       margin-top:25px;
-
       font-size:20px;
-
       opacity:0.8;
     }
 
 
     .intro-text{
       margin-top:25px;
-
       font-size:18px;
-
       line-height:1.6;
-
       opacity:0.7;
     }
 
 
-    /* PHRASES PENDANT LE SCROLL */
+    /* PHRASES DU SCROLL */
 
     .spacer{
       min-height:80vh;
@@ -124,40 +120,34 @@
       display:flex;
 
       align-items:center;
-
       justify-content:center;
 
-      font-size:36px;
+      box-sizing:border-box;
 
       padding:40px 25px;
 
-      box-sizing:border-box;
+      font-size:36px;
 
       opacity:0.95;
     }
 
 
-    /* RÉVÉLATION */
+    /* PRÉDICTION */
 
     .reveal{
-
       margin-top:80px;
 
       display:flex;
-
       flex-direction:column;
 
       align-items:center;
-
       justify-content:center;
 
       padding:0 15px;
-
     }
 
 
     .my-prediction{
-
       font-size:20px;
 
       opacity:0.6;
@@ -167,62 +157,63 @@
       letter-spacing:1px;
 
       text-transform:uppercase;
-
     }
 
 
     /*
       FLITCH
 
-      Aucun cadre.
-      Aucun fond supplémentaire.
-      Aucun contour.
+      Pas de cadre.
+      Pas de coins arrondis.
+      Pas de scrollbar.
 
-      Le noir de Flitch se fond directement
-      dans le noir du site.
+      La hauteur desktop est suffisante
+      pour afficher la prédiction sans
+      conserver l'énorme espace de 900px.
     */
 
     .flitch{
-  width:100%;
-  max-width:860px;
-  height:9000px;
+      width:100%;
 
-  border:none;
-  margin:0 auto;
-  padding:0;
+      max-width:860px;
 
-  display:block;
+      height:760px;
 
-  background:#0b0b0b;
+      border:0;
 
-  overflow:hidden;
-}
+      margin:0 auto;
+
+      padding:0;
+
+      display:block;
+
+      background:#0b0b0b;
+    }
 
 
     /* INSTAGRAM */
 
     .insta{
+      margin-top:30px;
 
-      margin-top:-220px;
-
-      padding:0 20px 60px 20px;
-
+      padding:
+        0
+        20px
+        60px
+        20px;
     }
 
 
     .insta p{
-
       font-size:24px;
 
       opacity:0.9;
 
       margin:0;
-
     }
 
 
     .insta small{
-
       display:block;
 
       margin-top:10px;
@@ -230,12 +221,10 @@
       opacity:0.7;
 
       font-size:16px;
-
     }
 
 
     .insta-btn{
-
       display:inline-block;
 
       margin-top:25px;
@@ -259,27 +248,23 @@
         );
 
       box-shadow:
-        0px 0px 25px rgba(253,29,29,0.6);
+        0 0 25px rgba(253,29,29,0.6);
 
       transition:0.3s;
-
     }
 
 
     .insta-btn:hover{
-
       transform:scale(1.06);
 
       box-shadow:
-        0px 0px 40px rgba(253,29,29,0.9);
-
+        0 0 40px rgba(253,29,29,0.9);
     }
 
 
     /* CONTACT */
 
     .contact{
-
       margin-top:20px;
 
       padding-bottom:
@@ -288,20 +273,18 @@
       font-size:16px;
 
       opacity:0.65;
-
     }
 
 
     .contact a{
-
       color:white;
-
       text-decoration:none;
-
     }
 
 
-    /* VERSION TÉLÉPHONE */
+    /* =========================
+       VERSION TÉLÉPHONE
+       ========================= */
 
     @media (max-width:420px){
 
@@ -322,30 +305,30 @@
 
 
       .spacer{
-
-        font-size:31px;
-
         min-height:75vh;
 
+        font-size:31px;
       }
 
-
-      .flitch{
-
-        width:100%;
-
-        height:650px;
-
-      }
-
-      .insta{
-  margin-top:50px;
-}
 
       .my-prediction{
-
         font-size:18px;
+      }
 
+
+      /*
+        On conserve la hauteur qui
+        fonctionnait déjà sur téléphone.
+      */
+
+      .flitch{
+        width:100%;
+        height:650px;
+      }
+
+
+      .insta{
+        margin-top:30px;
       }
 
     }
@@ -361,7 +344,6 @@
   <!-- FOND -->
 
   <div class="bg"></div>
-
   <div class="stars"></div>
 
 
@@ -370,7 +352,9 @@
 
   <div class="header">
 
-    <h1>Steph'Insight</h1>
+    <h1>
+      Steph'Insight
+    </h1>
 
 
     <img
@@ -381,15 +365,14 @@
 
 
     <div class="subtitle">
-
       Magicien • Mentaliste
-
     </div>
 
 
     <div class="intro-text">
 
       Plus tôt dans la journée,<br>
+
       j'ai laissé quelque chose ici.
 
     </div>
@@ -398,57 +381,43 @@
 
 
 
-  <!-- SCROLL -->
+  <!-- PARCOURS -->
 
   <div class="spacer">
-
     Vous avez fait vos choix.
-
   </div>
 
 
   <div class="spacer">
-
     Tout semblait dû au hasard.
-
   </div>
 
 
   <div class="spacer">
-
     Et pourtant...
-
   </div>
 
 
   <div class="spacer">
-
     Vos choix ne vous appartiennent peut-être pas...
-
   </div>
 
 
 
-  <!-- PRÉDICTION -->
+  <!-- RÉVÉLATION -->
 
   <div class="reveal">
 
 
     <div class="my-prediction">
-
       Ma prédiction
-
     </div>
 
 
     <iframe
-
       class="flitch"
-
       src="https://www.flitch.me/iframe.php?n=17726602048546"
-
       scrolling="no">
-
     </iframe>
 
 
@@ -461,27 +430,19 @@
   <div class="insta">
 
     <p>
-
       Ce n'était que le début.
-
     </p>
 
 
     <small>
-
       Envie de découvrir d'autres moments impossibles ?
-
     </small>
 
 
     <a
-
       class="insta-btn"
-
       href="https://instagram.com/steph_superv"
-
       target="_blank"
-
       rel="noopener">
 
       Suivre @steph_superv
