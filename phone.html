@@ -2,83 +2,717 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width,
-                 initial-scale=1.0,
-                 viewport-fit=cover">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               viewport-fit=cover">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Phone">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Phone">
 
-  <title>Phone</title>
+<title>Phone</title>
 
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: black;
-    }
+<style>
 
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-    }
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
 
-    .wallpaper-zone {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      background: black;
-      z-index: 0;
-    }
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#000;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;
+}
 
-    .wallpaper {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 164vw;
-      height: 100dvh;
-      transform: translateX(-50%);
-      border: 0;
-      margin: 0;
-      padding: 0;
-      display: block;
-    }
+body{
+  min-height:100dvh;
+}
 
-    .interface {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100dvh;
-      object-fit: fill;
-      z-index: 10;
-      pointer-events: none;
-    }
-  </style>
+/* =========================================
+   FLITCH = LE SEUL WALLPAPER
+   ========================================= */
+
+.wallpaper-zone{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  background:#000;
+  z-index:0;
+}
+
+.wallpaper{
+  position:absolute;
+  top:0;
+  left:50%;
+
+  width:164vw;
+  height:100dvh;
+
+  transform:translateX(-50%);
+
+  border:0;
+  display:block;
+}
+
+
+/* =========================================
+   INTERFACE iOS
+   ========================================= */
+
+.home{
+  position:fixed;
+  inset:0;
+  z-index:10;
+
+  padding:
+    max(72px, calc(env(safe-area-inset-top) + 46px))
+    18px
+    max(20px, env(safe-area-inset-bottom));
+
+  display:flex;
+  flex-direction:column;
+
+  pointer-events:none;
+}
+
+
+/* GRILLE */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  column-gap:13px;
+  row-gap:24px;
+}
+
+.app{
+  min-width:0;
+  text-align:center;
+}
+
+
+/* =========================================
+   DOSSIERS — VRAIE TRANSPARENCE
+   ========================================= */
+
+.folder{
+  width:100%;
+  aspect-ratio:1/1;
+
+  border-radius:23%;
+
+  padding:8px;
+
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(3,1fr);
+  gap:3px;
+
+  background:rgba(115,115,115,.30);
+
+  -webkit-backdrop-filter:blur(18px) saturate(135%);
+  backdrop-filter:blur(18px) saturate(135%);
+
+  box-shadow:
+    inset 0 0 0 .5px rgba(255,255,255,.10);
+}
+
+
+/* =========================================
+   MINI ICÔNES
+   Elles sont dessinées en CSS :
+   aucun JPEG = aucun liseré noir.
+   ========================================= */
+
+.mini{
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:24%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:9px;
+  line-height:1;
+
+  overflow:hidden;
+
+  box-shadow:
+    inset 0 0 0 .4px rgba(255,255,255,.22);
+}
+
+.red{background:#ff3b30;}
+.blue{background:#1688f8;}
+.green{background:#34c759;}
+.orange{background:#ff9500;}
+.yellow{background:#ffd60a;}
+.purple{background:#af52de;}
+.pink{background:#ff2d55;}
+.white{background:#f7f7f7;color:#222;}
+.dark{background:#202124;}
+.cyan{background:#32ade6;}
+.gray{background:#747474;}
+.lime{background:#65d83f;}
+
+.folder-label{
+  margin-top:5px;
+
+  color:white;
+  font-size:11px;
+  line-height:13px;
+  font-weight:400;
+
+  text-shadow:0 1px 3px rgba(0,0,0,.9);
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+
+/* =========================================
+   BAS DE L'ÉCRAN
+   ========================================= */
+
+.bottom{
+  margin-top:auto;
+}
+
+
+/* RECHERCHE */
+
+.search{
+  width:110px;
+  height:31px;
+
+  margin:0 auto 14px;
+
+  border-radius:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+
+  color:white;
+
+  font-size:13px;
+  font-weight:500;
+
+  background:rgba(80,80,80,.34);
+
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  backdrop-filter:blur(18px) saturate(140%);
+
+  box-shadow:
+    inset 0 0 0 .5px rgba(255,255,255,.12);
+
+  text-shadow:0 1px 2px rgba(0,0,0,.8);
+}
+
+
+/* =========================================
+   DOCK
+   ========================================= */
+
+.dock{
+  height:91px;
+
+  border-radius:30px;
+
+  padding:13px 16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:rgba(115,115,115,.27);
+
+  -webkit-backdrop-filter:blur(24px) saturate(145%);
+  backdrop-filter:blur(24px) saturate(145%);
+
+  box-shadow:
+    inset 0 0 0 .5px rgba(255,255,255,.14);
+}
+
+.dock-icon{
+  width:59px;
+  height:59px;
+
+  border-radius:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+
+  font-size:31px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 1px 4px rgba(0,0,0,.20),
+    inset 0 0 0 .5px rgba(255,255,255,.25);
+}
+
+
+/* MAIL */
+
+.mail{
+  background:#1688f8;
+}
+
+.envelope{
+  width:34px;
+  height:25px;
+
+  border:3px solid white;
+  border-radius:4px;
+
+  position:relative;
+}
+
+.envelope:after{
+  content:"";
+  position:absolute;
+
+  width:21px;
+  height:21px;
+
+  left:4px;
+  top:-10px;
+
+  border-left:3px solid white;
+  border-bottom:3px solid white;
+
+  transform:rotate(-45deg);
+}
+
+
+/* PHONE */
+
+.phone{
+  background:#34c759;
+  color:white;
+  font-size:35px;
+}
+
+
+/* MESSAGES */
+
+.messages{
+  background:#34c759;
+}
+
+.bubble{
+  width:37px;
+  height:30px;
+
+  background:white;
+  border-radius:50%;
+
+  position:relative;
+}
+
+.bubble:after{
+  content:"";
+  position:absolute;
+
+  width:12px;
+  height:12px;
+
+  background:white;
+
+  bottom:-2px;
+  left:5px;
+
+  transform:rotate(25deg);
+}
+
+
+/* SAFARI */
+
+.safari{
+  background:white;
+}
+
+.compass{
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+
+  border:3px solid #178bff;
+
+  position:relative;
+}
+
+.compass:before{
+  content:"";
+  position:absolute;
+
+  width:4px;
+  height:31px;
+
+  background:#ef3340;
+
+  left:16px;
+  top:3px;
+
+  transform:rotate(38deg);
+
+  border-radius:3px;
+}
+
+
+/* HOME INDICATOR */
+
+.home-indicator{
+  width:138px;
+  height:5px;
+
+  background:white;
+
+  border-radius:5px;
+
+  margin:9px auto 0;
+
+  box-shadow:0 1px 3px rgba(0,0,0,.4);
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <div class="wallpaper-zone">
-    <iframe
-      class="wallpaper"
-      src="https://www.flitch.me/iframe.php?n=17726602048546"
-      scrolling="no">
-    </iframe>
+
+<!-- PRÉDICTION DYNAMIQUE -->
+
+<div class="wallpaper-zone">
+
+  <iframe
+    class="wallpaper"
+    src="https://www.flitch.me/iframe.php?n=17726602048546"
+    scrolling="no">
+  </iframe>
+
+</div>
+
+
+<!-- INTERFACE -->
+
+<div class="home">
+
+
+  <div class="grid">
+
+
+    <!-- BUREAU -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini blue">✉</span>
+        <span class="mini white">📅</span>
+        <span class="mini white">☁</span>
+
+        <span class="mini dark">N</span>
+        <span class="mini white">◉</span>
+        <span class="mini blue">W</span>
+
+        <span class="mini green">X</span>
+        <span class="mini orange">P</span>
+        <span class="mini white">✓</span>
+      </div>
+      <div class="folder-label">Bureau</div>
+    </div>
+
+
+    <!-- PLANNING -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini white">📅</span>
+        <span class="mini blue">▦</span>
+        <span class="mini purple">✚</span>
+
+        <span class="mini white">12</span>
+        <span class="mini cyan">CHL</span>
+        <span class="mini blue">+</span>
+
+        <span class="mini white">✓</span>
+        <span class="mini blue">▣</span>
+        <span class="mini green">●</span>
+      </div>
+      <div class="folder-label">planning/ensa/chl</div>
+    </div>
+
+
+    <!-- SOCIAL -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini blue">f</span>
+        <span class="mini pink">◎</span>
+        <span class="mini dark">𝕏</span>
+
+        <span class="mini blue">in</span>
+        <span class="mini white">◎</span>
+        <span class="mini blue">☁</span>
+
+        <span class="mini dark">♪</span>
+        <span class="mini orange">●</span>
+        <span class="mini blue">✦</span>
+      </div>
+      <div class="folder-label">social</div>
+    </div>
+
+
+    <!-- PHOTO -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini white">✿</span>
+        <span class="mini blue">Lr</span>
+        <span class="mini dark">◉</span>
+
+        <span class="mini white">□</span>
+        <span class="mini purple">✦</span>
+        <span class="mini orange">◉</span>
+
+        <span class="mini blue">☁</span>
+        <span class="mini white">◇</span>
+        <span class="mini green">✓</span>
+      </div>
+      <div class="folder-label">photo</div>
+    </div>
+
+
+    <!-- FINANCES -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini orange">€</span>
+        <span class="mini blue">P</span>
+        <span class="mini white">€</span>
+
+        <span class="mini dark"></span>
+        <span class="mini blue">💳</span>
+        <span class="mini green">€</span>
+
+        <span class="mini white">▤</span>
+        <span class="mini purple">◆</span>
+        <span class="mini blue">●</span>
+      </div>
+      <div class="folder-label">achats / finances</div>
+    </div>
+
+
+    <!-- SPORT -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini dark">⌚</span>
+        <span class="mini white">♡</span>
+        <span class="mini green">✚</span>
+
+        <span class="mini orange">●</span>
+        <span class="mini blue">🏃</span>
+        <span class="mini white">♥</span>
+
+        <span class="mini green">✓</span>
+        <span class="mini dark">●</span>
+        <span class="mini blue">+</span>
+      </div>
+      <div class="folder-label">Sport / Santé</div>
+    </div>
+
+
+    <!-- TEXTE -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini white">Aa</span>
+        <span class="mini blue">W</span>
+        <span class="mini dark">N</span>
+
+        <span class="mini orange">✎</span>
+        <span class="mini white">▤</span>
+        <span class="mini blue">D</span>
+
+        <span class="mini purple">✦</span>
+        <span class="mini green">✓</span>
+        <span class="mini white">PDF</span>
+      </div>
+      <div class="folder-label">Texte</div>
+    </div>
+
+
+    <!-- VIDEO -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini red">▶</span>
+        <span class="mini white">♫</span>
+        <span class="mini purple">♪</span>
+
+        <span class="mini dark">▶</span>
+        <span class="mini red">♫</span>
+        <span class="mini blue">▶</span>
+
+        <span class="mini orange">●</span>
+        <span class="mini white">♬</span>
+        <span class="mini green">▶</span>
+      </div>
+      <div class="folder-label">Vidéo / Musique</div>
+    </div>
+
+
+    <!-- BOULOT -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini red">M</span>
+        <span class="mini white">📅</span>
+        <span class="mini blue">☁</span>
+
+        <span class="mini green">✓</span>
+        <span class="mini dark">●</span>
+        <span class="mini orange">▦</span>
+
+        <span class="mini blue">W</span>
+        <span class="mini white">✚</span>
+        <span class="mini purple">●</span>
+      </div>
+      <div class="folder-label">Boulot</div>
+    </div>
+
+
+    <!-- MOBILITE -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini blue">➤</span>
+        <span class="mini white">M</span>
+        <span class="mini green">🚲</span>
+
+        <span class="mini orange">🚗</span>
+        <span class="mini blue">P</span>
+        <span class="mini white">▣</span>
+
+        <span class="mini red">●</span>
+        <span class="mini blue">➤</span>
+        <span class="mini green">●</span>
+      </div>
+      <div class="folder-label">Mobilité/transport</div>
+    </div>
+
+
+    <!-- JEUX -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini red">♟</span>
+        <span class="mini blue">◆</span>
+        <span class="mini yellow">★</span>
+
+        <span class="mini green">●</span>
+        <span class="mini orange">♟</span>
+        <span class="mini purple">◆</span>
+
+        <span class="mini white">🎲</span>
+        <span class="mini blue">★</span>
+        <span class="mini red">●</span>
+      </div>
+      <div class="folder-label">Jeux de société</div>
+    </div>
+
+
+    <!-- EDUCATION -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini green">D</span>
+        <span class="mini white">A</span>
+        <span class="mini blue">▤</span>
+
+        <span class="mini orange">✎</span>
+        <span class="mini purple">✦</span>
+        <span class="mini white">✓</span>
+
+        <span class="mini blue">B</span>
+        <span class="mini green">●</span>
+        <span class="mini yellow">★</span>
+      </div>
+      <div class="folder-label">Éducation</div>
+    </div>
+
+
+    <!-- BOUFFE -->
+
+    <div class="app">
+      <div class="folder">
+        <span class="mini red">M</span>
+        <span class="mini green">🥬</span>
+        <span class="mini orange">☕</span>
+
+        <span class="mini white">🍴</span>
+        <span class="mini green">V</span>
+        <span class="mini blue">●</span>
+
+        <span class="mini yellow">★</span>
+        <span class="mini red">●</span>
+        <span class="mini white">☕</span>
+      </div>
+      <div class="folder-label">Bouffe / café</div>
+    </div>
+
+
   </div>
 
-  <img
-    class="interface"
-    src="apps_overlay_v3.png"
-    alt="">
+
+  <div class="bottom">
+
+    <div class="search">
+      ⌕ Recherche
+    </div>
+
+
+    <div class="dock">
+
+      <div class="dock-icon mail">
+        <div class="envelope"></div>
+      </div>
+
+      <div class="dock-icon phone">
+        ☎
+      </div>
+
+      <div class="dock-icon messages">
+        <div class="bubble"></div>
+      </div>
+
+      <div class="dock-icon safari">
+        <div class="compass"></div>
+      </div>
+
+    </div>
+
+
+    <div class="home-indicator"></div>
+
+  </div>
+
+</div>
 
 </body>
-
 </html>
