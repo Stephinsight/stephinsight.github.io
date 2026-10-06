@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
 
@@ -16,14 +15,14 @@
   <title>Phone</title>
 
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
       background: #000;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 
     body {
@@ -31,7 +30,7 @@
       min-height: 100dvh;
     }
 
-    /* FLITCH DYNAMIQUE */
+    /* FLITCH = LE FOND D'ÉCRAN */
     .wallpaper-zone {
       position: fixed;
       inset: 0;
@@ -56,18 +55,55 @@
       display: block;
     }
 
-    /* NOTRE INTERFACE MIX */
-    .interface {
+    /* LÉGER ASSOMBRISSEMENT COMME UN LOCKSCREEN */
+    .shade {
       position: fixed;
       inset: 0;
-
-      width: 100vw;
-      height: 100dvh;
-
-      object-fit: fill;
-
-      z-index: 10;
+      z-index: 2;
       pointer-events: none;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.12) 0%,
+          rgba(0,0,0,0) 38%,
+          rgba(0,0,0,.05) 100%
+        );
+    }
+
+    /* HORLOGE */
+    .clock {
+      position: fixed;
+
+      top: 54px;
+      left: 50%;
+
+      transform: translateX(-50%) scaleX(.72);
+      transform-origin: center top;
+
+      z-index: 5;
+
+      color: rgba(255,255,255,.92);
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        sans-serif;
+
+      font-size: 142px;
+      font-weight: 200;
+      line-height: .95;
+
+      letter-spacing: -8px;
+
+      white-space: nowrap;
+
+      text-shadow:
+        0 1px 3px rgba(0,0,0,.10);
+
+      pointer-events: none;
+      user-select: none;
     }
   </style>
 </head>
@@ -82,11 +118,27 @@
     </iframe>
   </div>
 
-  <img
-    class="interface"
-    src="ios_mix_masked_v1.png"
-    alt="">
+  <div class="shade"></div>
+
+  <div id="clock" class="clock">00:00</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const hours =
+        String(now.getHours()).padStart(2, "0");
+
+      const minutes =
+        String(now.getMinutes()).padStart(2, "0");
+
+      document.getElementById("clock").textContent =
+        hours + ":" + minutes;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 
 </body>
-
 </html>
