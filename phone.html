@@ -83,7 +83,8 @@
 
   z-index: 5;
 
-  color: rgba(255,255,255,.52);
+  /* Corps translucide */
+  color: rgba(235, 240, 236, .46);
 
   font-family:
     -apple-system,
@@ -92,16 +93,21 @@
     sans-serif;
 
   font-size: 142px;
-  font-weight: 200;
+  font-weight: 300;
   line-height: .95;
-
   letter-spacing: -8px;
 
   white-space: nowrap;
 
+  /* Effet verre / relief */
+  -webkit-text-stroke:
+    1px rgba(255, 255, 255, .38);
+
   text-shadow:
-    0 1px 1px rgba(255,255,255,.25),
-    0 2px 4px rgba(0,0,0,.22);
+    0 -1px 1px rgba(255,255,255,.50),
+    1px 0 1px rgba(255,255,255,.20),
+    0 2px 2px rgba(0,0,0,.28),
+    0 4px 7px rgba(0,0,0,.12);
 
   pointer-events: none;
   user-select: none;
