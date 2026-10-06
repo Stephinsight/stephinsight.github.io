@@ -16,62 +16,82 @@
   <title>Phone</title>
 
   <style>
-
     html,
-    body{
-      margin:0;
-      padding:0;
-
-      width:100%;
-      height:100%;
-
-      overflow:hidden;
-
-      background:black;
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
     }
 
-
-    body{
-      min-height:100vh;
-      min-height:100dvh;
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
     }
 
-
-    /*
-      LA PRÉDICTION FLITCH
-      OCCUPE L'ÉCRAN
-    */
-
-    .wallpaper{
-      position:fixed;
-
-      inset:0;
-
-      width:100%;
-      height:100%;
-
-      border:0;
-
-      margin:0;
-      padding:0;
-
-      display:block;
-
-      background:black;
+    /* FOND : prédiction Flitch */
+    .wallpaper-zone {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: black;
+      z-index: 0;
     }
 
+    .wallpaper {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      /*
+        On agrandit l'iframe :
+        l'image Flitch devient assez haute pour remplir
+        l'écran d'un iPhone. Les côtés sont simplement rognés.
+      */
+      width: 164vw;
+      height: 100dvh;
+
+      transform: translateX(-50%);
+
+      border: 0;
+      margin: 0;
+      padding: 0;
+
+      display: block;
+    }
+
+    /* TON VRAI ÉCRAN D'ACCUEIL */
+    .interface {
+      position: fixed;
+      inset: 0;
+
+      width: 100vw;
+      height: 100dvh;
+
+      object-fit: fill;
+
+      z-index: 10;
+      pointer-events: none;
+    }
   </style>
-
 </head>
-
 
 <body>
 
-  <iframe
-    class="wallpaper"
-    src="https://www.flitch.me/iframe.php?n=17726602048546"
-    scrolling="no">
-  </iframe>
+  <div class="wallpaper-zone">
+    <iframe
+      class="wallpaper"
+      src="https://www.flitch.me/iframe.php?n=17726602048546"
+      scrolling="no">
+    </iframe>
+  </div>
+
+  <img
+    class="interface"
+    src="apps_overlay.png"
+    alt="">
 
 </body>
 
